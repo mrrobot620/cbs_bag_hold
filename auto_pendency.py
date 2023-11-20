@@ -7,6 +7,7 @@ time_zone = pytz.timezone('Asia/Kolkata')
 current_time= datetime.now(time_zone)
 
 
+# All the files needed 
 df_secondary = pd.read_csv('ykb_secondary_pending_abhi.csv')
 outbond_df = pd.read_csv('ykb_outbound.csv')
 outbond_12 = pd.read_csv("ykb_outbond_pending_greater_than_12.csv")
@@ -15,28 +16,29 @@ df_bagging = pd.read_csv('ykb_bagging_pending_automation_abhi.csv')
 df = pd.read_csv("Pendency_automation_report_ageing_greater_than_12.csv")
 
 
-
+try:
 # Secondary Pending Automation Part 
-df_secondary_zo = df_secondary[df_secondary['bag_type_ph'] == "ZO"]
-df_secondary_zo['bag_facility_source_name'].fillna("Not Found" , inplace=True)
-df_secondary_zo_ph  = df_secondary_zo[df_secondary_zo['bag_facility_source_name'].str.contains("DEL_PL|Bhiwadi|Bhiwani|Bilaspur")]
-df_secondary_zo_sph = df_secondary_zo[~df_secondary_zo.index.isin(df_secondary_zo_ph.index)]
-df_secondary_zo_ph1 = df_secondary_zo_ph.groupby('bag_facility_source_name').size()
-df_secondary_zo_sph1 = df_secondary_zo_sph.groupby('bag_facility_source_name').size()
-print(f"Secondary Pending ZO PH: {sum(df_secondary_zo_ph1)}")
-print(f"Secondary Pending ZO SPH: {sum(df_secondary_zo_sph1)}")
-print(f"Secondary Total Pending ZO: {sum(df_secondary_zo_ph1) + sum(df_secondary_zo_sph1)} ")
-
-
-df_secondary_b5 = df_secondary[df_secondary['bag_type_ph'] == "B5"]
-df_secondary_b5['bag_facility_source_name'].fillna("Not Found" , inplace=True)
-df_secondary_b5_ph = df_secondary_b5[df_secondary_b5['bag_facility_source_name'].str.contains("DEL_PL|BHiwadi|Bhiwani|Bilaspur")]
-df_secondary_b5_sph = df_secondary_b5[~df_secondary_b5.index.isin(df_secondary_b5_ph.index)]
-df_secondary_b5_ph1 = df_secondary_b5_ph.groupby('bag_facility_source_name').size()
-df_secondary_b5_sph1 = df_secondary_b5_sph.groupby('bag_facility_source_name').size()
-print(f"Secondary Pending B5 PH: {sum(df_secondary_b5_ph1)}")
-print(f"Secondary Pending B5 SPH: {sum(df_secondary_b5_sph1)}")
-print(f"Secondary Total Pending B5: {sum(df_secondary_b5_ph1) + sum(df_secondary_b5_sph1)} ")
+    df_secondary_zo = df_secondary[df_secondary['bag_type_ph'] == "ZO"]
+    df_secondary_zo['bag_facility_source_name'].fillna("Not Found" , inplace=True)
+    df_secondary_zo_ph  = df_secondary_zo[df_secondary_zo['bag_facility_source_name'].str.contains("DEL_PL|Bhiwadi|Bhiwani|Bilaspur")]
+    df_secondary_zo_sph = df_secondary_zo[~df_secondary_zo.index.isin(df_secondary_zo_ph.index)]
+    df_secondary_zo_ph1 = df_secondary_zo_ph.groupby('bag_facility_source_name').size()
+    df_secondary_zo_sph1 = df_secondary_zo_sph.groupby('bag_facility_source_name').size()
+    print(f"Secondary Pending ZO PH: {sum(df_secondary_zo_ph1)}")
+    print(f"Secondary Pending ZO SPH: {sum(df_secondary_zo_sph1)}")
+    print(f"Secondary Total Pending ZO: {sum(df_secondary_zo_ph1) + sum(df_secondary_zo_sph1)} ")
+    df_secondary_b5 = df_secondary[df_secondary['bag_type_ph'] == "B5"]
+    df_secondary_b5['bag_facility_source_name'].fillna("Not Found" , inplace=True)
+    df_secondary_b5_ph = df_secondary_b5[df_secondary_b5['bag_facility_source_name'].str.contains("DEL_PL|BHiwadi|Bhiwani|Bilaspur")]
+    df_secondary_b5_sph = df_secondary_b5[~df_secondary_b5.index.isin(df_secondary_b5_ph.index)]
+    df_secondary_b5_ph1 = df_secondary_b5_ph.groupby('bag_facility_source_name').size()
+    df_secondary_b5_sph1 = df_secondary_b5_sph.groupby('bag_facility_source_name').size()
+    print(f"Secondary Pending B5 PH: {sum(df_secondary_b5_ph1)}")
+    print(f"Secondary Pending B5 SPH: {sum(df_secondary_b5_sph1)}")
+    print(f"Secondary Total Pending B5: {sum(df_secondary_b5_ph1) + sum(df_secondary_b5_sph1)} ")
+except Exception as E:
+    print("Failed while processing secondary file")
+    print(E)
 
 
 # OutBond Pending Automation Part
