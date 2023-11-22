@@ -22,7 +22,7 @@ try:
 except Exception as E:
     logging.warning(f"Error Outbound12 File not found {E}")
 try:
-    df_ppph = pd.read_csv('ykb_pendency_automation_PPPH.csv')
+    df_ppph1 = pd.read_csv('ykb_pendency_automation_PPPH.csv')
 except Exception as E:
     logging.warning(f"Error PPPH File not Found {E}")
 try:
@@ -43,8 +43,6 @@ except Exception as E:
     logging.warning(f"Error Outbond SL File not found {E}")
 
 
-
-
 try:
     df_secondary_zo = df_secondary[df_secondary['bag_type_ph'] == "ZO"]
     df_secondary_zo['bag_facility_source_name'].fillna("Not Found" , inplace=True)
@@ -55,6 +53,7 @@ try:
     # print(f"Secondary Pending ZO PH: {sum(df_secondary_zo_ph1)}")
     # print(f"Secondary Pending ZO SPH: {sum(df_secondary_zo_sph1)}")
     # print(f"Secondary Total Pending ZO: {sum(df_secondary_zo_ph1) + sum(df_secondary_zo_sph1)} ")
+
     df_secondary_b5 = df_secondary[df_secondary['bag_type_ph'] == "B5"]
     df_secondary_b5['bag_facility_source_name'].fillna("Not Found" , inplace=True)
     df_secondary_b5_ph = df_secondary_b5[df_secondary_b5['bag_facility_source_name'].str.contains("DEL_PL|BHiwadi|Bhiwani|Bilaspur")]
@@ -83,6 +82,10 @@ except Exception as E:
 
 
 try:
+    df_ppph= df_ppph1[df_ppph1['shipment_facility_current_name'] == "MotherHub_YKB"]
+    ykb_ppph = df_ppph['tracking_id_ekart'].sum()
+    other_mh  = df_ppph1[~df_ppph1.index.isin(df_ppph.index)]
+    other_mh_count = other_mh['tracking_id_ekart'].sum()
     df_ppph_zo = df_ppph[df_ppph['bag_type_ph'] == "ZO"]
     df_ppph_zo_ph  = df_ppph_zo[df_ppph_zo['bag_facility_source_name'].str.contains("DEL_PL|Bilaspur|Bhiwani|Bhiwadi")]
     zo_ph_shipment_count  = df_ppph_zo_ph['tracking_id_ekart'].sum()
@@ -173,41 +176,58 @@ def calculate_and_categorize_time(dataframe, column_name, current_time  , bucket
 
 
 zo_ph_secondary_total = calculate_and_categorize_time(df_secondary_zo_ph , 'fact_updated_at' , current_time , "ZO Secondary Pending PH: ")
-print(zo_ph_secondary_total)
+# print(zo_ph_secondary_total)
 zo_sph_secondary_total = calculate_and_categorize_time(df_secondary_zo_sph , 'fact_updated_at' , current_time , "ZO Secondary Pending SPH: ")
-print(zo_sph_secondary_total)
+# print(zo_sph_secondary_total)
 print(f"Total ZO Secondary Pending:    {sum(zo_ph_secondary_total) + sum(zo_sph_secondary_total)}")
 b5_ph_secondary_total = calculate_and_categorize_time(df_secondary_b5_ph , 'fact_updated_at' , current_time , "B5 Secondary Pending PH: ")
-print(b5_ph_secondary_total)
+# print(b5_ph_secondary_total)
 b5_sph_secondary_total = calculate_and_categorize_time(df_secondary_b5_sph , 'fact_updated_at' , current_time , "B5 Secondary Pending SPH: ")
-print(b5_sph_secondary_total)
-print(f"Total B5 Secondary Pending:  {sum(b5_ph_secondary_total) + sum(b5_sph_secondary_total)} ")
+# print(b5_sph_secondary_total)
+# print(f"Total B5 Secondary Pending:  {sum(b5_ph_secondary_total) + sum(b5_sph_secondary_total)} ")
 
 ## Outbond Pending Automation Part
 outbond_12_pendency = calculate_and_categorize_time(outbond_12 , 'fact_updated_at' , current_time , "Outbond Pendency")
-print(f"OutBond Pendency {outbond_12_pendency}")
+# print(f"OutBond Pendency {outbond_12_pendency}")
 
 # Bagging Pending 
 zo_ph_bagging_total = calculate_and_categorize_time(df_bagging_zo_ph , 'fact_updated_at' , current_time , "ZO Bagging Pending PH: ")
-print(zo_ph_bagging_total)
+# print(zo_ph_bagging_total)
 zo_sph_bagging_total = calculate_and_categorize_time(df_bagging_zo_sph , 'fact_updated_at' , current_time , "ZO Bagging Pending SPH: ")
-print(zo_sph_bagging_total)
+# print(zo_sph_bagging_total)
 print(f"Total ZO Secondary Pending:    {sum(zo_ph_bagging_total) + sum(zo_sph_bagging_count)}")
 b5_ph_bagging_total = calculate_and_categorize_time(df_bagging_b5_ph , 'fact_updated_at' , current_time , "B5 Bagging Pending PH: ")
-print(b5_ph_bagging_total)
+# print(b5_ph_bagging_total)
 b5_sph_bagging_total = calculate_and_categorize_time(df_bagging_b5_sph , 'fact_updated_at' , current_time , "B5 Bagging Pending SPH: ")
-print(b5_sph_bagging_total)
+# print(b5_sph_bagging_total)
 print(f"Total B5 Secondary Pending:  {sum(b5_ph_bagging_total) + sum(b5_sph_bagging_total)} ")
 
 ## PPHH Pending 
 final_zo_ph = calculate_and_categorize_time(df_zo_ph , 'fact_updated_at' , current_time , 'ZO PH')
-print(f"{final_zo_ph} & total {sum(final_zo_ph)}" )
+# print(f"{final_zo_ph} & total {sum(final_zo_ph)}" )
 final_zo_sph = calculate_and_categorize_time(df_zo_sph , 'fact_updated_at' , current_time , "ZO SPH")
-print(f"{final_zo_sph}  && Total:  {sum(final_zo_sph)}")
+# print(f"{final_zo_sph}  && Total:  {sum(final_zo_sph)}")
 print(f"ZO Total PH + SPH =   {sum(final_zo_sph) + sum(final_zo_ph)}")
 final_b5_ph = calculate_and_categorize_time(df_b5_ph , 'fact_updated_at' , current_time , "B5 PH")
-print(f" {final_b5_ph} && Total:  {sum(final_b5_ph)}")
+# print(f" {final_b5_ph} && Total:  {sum(final_b5_ph)}")
 final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , current_time , "B5 SPH")
-print(f"{final_b5_sph} && Total {sum(final_b5_sph)}")
-print(f"B5 Final PH + SPH =  {sum(final_b5_ph) + sum(final_b5_sph)}")
+# print(f"{final_b5_sph} && Total {sum(final_b5_sph)}")
+# print(f"B5 Final PH + SPH =  {sum(final_b5_ph) + sum(final_b5_sph)}")
 
+
+live_ppph = {"Live_PPPH" , ykb_ppph}
+live_ph = {"Live PH" , zo_ph_shipment_count + b5_ph_shipment_count}
+live_sph = {"Live SPH" , zo_sph_shipment_count + b5_sph_shipment_count}
+other_mh_ppph1 = {"Other MH PPPH" , other_mh_count}
+ppph_zo_ph = {"ZO PH" , zo_ph_shipment_count}
+ppph_b5_ph  = {"B5 PH" , b5_ph_shipment_count}
+ppph_zo_sph = {"ZO SPH" , zo_sph_shipment_count}
+ppph_b5_sph = {"B5 SPH" , b5_sph_shipment_count}
+print(live_ph)
+print(live_sph)
+print(live_ppph)
+print(other_mh_ppph1)
+print(ppph_zo_ph)
+print(ppph_b5_ph)
+print(ppph_zo_sph)
+print(ppph_b5_sph)
