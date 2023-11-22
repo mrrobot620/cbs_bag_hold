@@ -1,7 +1,28 @@
-11/21/2023 02:19:16 AM : Processing Secondary Pendency File Sucessfull
-11/21/2023 02:19:16 AM Error while Processing OB Files:  [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
-11/21/2023 02:51:49 AM : Processing Secondary Pendency File Sucessfull
-11/21/2023 02:51:49 AM : Processing OB Files Sucessful
-11/21/2023 02:51:49 AM : Processing PPPH File Sucessfull
-11/21/2023 02:51:49 AM : Sucess while Processing Bagging File
-11/21/2023 02:51:49 AM : Sucess while Processing the PPPH greater than 12 Aging File
+11/22/2023 01:27:47 AM Error PPPH File not Found [Errno 2] No such file or directory: 'ykb_pendency_automation_PPPH.csv'
+11/22/2023 01:27:47 AM Error while reading the Bagging File [Errno 2] No such file or directory: 'ykb_bagging_pending_automation_abhi.csv'
+11/22/2023 01:27:47 AM : Success Processing Secondary Pendency File
+11/22/2023 01:27:47 AM Error while Processing OB Files:  [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
+11/22/2023 01:27:47 AM : Error while Processing the PPPH Files : name 'df_ppph' is not defined
+11/22/2023 01:27:47 AM : Error while Processing the Bagging File : name 'df_bagging' is not defined
+11/22/2023 01:27:47 AM : Success while Processing the PPPH greater than 12 Aging File
+11/22/2023 02:51:04 AM Error Outbound12 File not found [Errno 2] No such file or directory: 'ykb_outbond_pending_greater_than_12.csv'
+11/22/2023 02:51:04 AM Error while reading the Bagging File [Errno 2] No such file or directory: 'ykb_bagging_pending_automation_abhi.csv'
+11/22/2023 02:51:04 AM Error while Reading the Outbond XD file [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
+11/22/2023 02:51:04 AM : Success Processing Secondary Pendency File
+11/22/2023 02:51:04 AM Error while Processing OB Files:  name 'outbond_xd' is not defined
+11/22/2023 02:51:04 AM : Success PPPH File 
+11/22/2023 02:51:04 AM : Error while Processing the Bagging File : name 'df_bagging' is not defined
+11/22/2023 02:51:04 AM : Success while Processing the PPPH greater than 12 Aging File
+11/22/2023 02:59:55 AM Error while reading the Bagging File [Errno 2] No such file or directory: 'ykb_bagging_pending_automation_abhi.csv'
+11/22/2023 02:59:55 AM Error while Reading the Outbond XD file [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
+11/22/2023 02:59:56 AM : Success Processing Secondary Pendency File
+11/22/2023 02:59:56 AM Error while Processing OB Files:  name 'outbond_xd' is not defined
+11/22/2023 02:59:56 AM : Success PPPH File 
+11/22/2023 02:59:56 AM : Error while Processing the Bagging File : name 'df_bagging' is not defined
+11/22/2023 02:59:56 AM : Success while Processing the PPPH greater than 12 Aging File
+11/22/2023 03:00:45 AM Error while Reading the Outbond XD file [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
+11/22/2023 03:00:45 AM : Success Processing Secondary Pendency File
+11/22/2023 03:00:45 AM Error while Processing OB Files:  name 'outbond_xd' is not defined
+11/22/2023 03:00:45 AM : Success PPPH File 
+11/22/2023 03:00:45 AM : Success while Processing Bagging File
+11/22/2023 03:00:45 AM : Success while Processing the PPPH greater than 12 Aging File
