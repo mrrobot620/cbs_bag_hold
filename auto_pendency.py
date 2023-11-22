@@ -214,6 +214,12 @@ final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , cur
 # print(f"{final_b5_sph} && Total {sum(final_b5_sph)}")
 # print(f"B5 Final PH + SPH =  {sum(final_b5_ph) + sum(final_b5_sph)}")
 
+def listMaker(dataframe1 , dataframe2):
+    data = {}
+    for index , row in dataframe1.items():
+        for index , row1 in dataframe2.items():
+            data[index] = row + row1
+    return data
 
 live_ppph = {"Live_PPPH" , ykb_ppph}
 live_ph = {"Live PH" , zo_ph_shipment_count + b5_ph_shipment_count}
@@ -223,11 +229,20 @@ ppph_zo_ph = {"ZO PH" , zo_ph_shipment_count}
 ppph_b5_ph  = {"B5 PH" , b5_ph_shipment_count}
 ppph_zo_sph = {"ZO SPH" , zo_sph_shipment_count}
 ppph_b5_sph = {"B5 SPH" , b5_sph_shipment_count}
-print(live_ph)
-print(live_sph)
-print(live_ppph)
-print(other_mh_ppph1)
-print(ppph_zo_ph)
-print(ppph_b5_ph)
-print(ppph_zo_sph)
-print(ppph_b5_sph)
+
+ppph_12_ph  = listMaker(final_zo_ph , final_b5_ph)
+ppph_12_sph = listMaker(final_zo_sph , final_zo_sph)
+
+
+print(f"Live PH: {live_ph}")
+print(f"Live SPH: {live_sph}")
+print(f"Live Total PPPH: {live_ppph}")
+print(f"Other MH:  {other_mh_ppph1}")
+print(f"PPPH ZO PH: {ppph_zo_ph}")
+print(f"PPPH B5 PH: {ppph_b5_ph}")
+print(f"PPPH ZO SPH: {ppph_zo_sph}")
+print(f"PPPH B5 SPH: {ppph_b5_sph}")
+print(f"PPPH PH Ageing: {ppph_12_ph}")
+print(f"PPPH SPH Ageing: {ppph_12_sph}")
+
+
