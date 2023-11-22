@@ -1,0 +1,56 @@
+"shipment_facility_current_name","shipment_facility_nexthop_name","shipment_service_tier","shipment_tms_cutoff","tracking_id_merchant","bag_id"
+"MotherHub_YKB","MotherHub_JJH","ECONOMY","09:00:00",536,36
+"MotherHub_YKB","Motherhub_JKS","REGULAR","23:00:00",156,17
+"MotherHub_YKB","MotherHub_DEL","ECONOMY","18:00:00",86,19
+"MotherHub_YKB","Motherhub_ULB","REGULAR","16:00:00",11,4
+"MotherHub_YKB","Motherhub_DIC","ECONOMY","23:00:00",64,7
+"MotherHub_YKB","MotherHub_JJH","REGULAR","09:00:00",219,38
+"MotherHub_YKB","Motherhub_SAI_4","ECONOMY","21:00:00",29,3
+"MotherHub_YKB","MotherHub_YKB_Flex","ECONOMY","11:00:00",31,12
+"MotherHub_YKB","sanpka 01","REGULAR","18:00:00",107,15
+"MotherHub_YKB","Motherhub_JKS","ECONOMY","23:00:00",245,19
+"MotherHub_YKB","MotherHub_BLR","ECONOMY","08:00:00",28,5
+"MotherHub_YKB","MotherHub_DEL","REGULAR","03:30:00",12,8
+"MotherHub_YKB","MotherHub_STV","REGULAR","21:00:00",60,8
+"MotherHub_YKB","MotherHub_STV","ECONOMY","21:00:00",155,11
+"MotherHub_YKB","Motherhub_ULB","ECONOMY","16:00:00",17,4
+"MotherHub_YKB","Farrukhnagar BTS Warehouse","ECONOMY","18:00:00",73,9
+"MotherHub_YKB","Motherhub_SAI_4","REGULAR","21:00:00",31,5
+"MotherHub_YKB","Motherhub_DIC","REGULAR","23:00:00",6,4
+"MotherHub_YKB","KhuntiHub_IXR","ECONOMY","02:00:00",1,1
+"MotherHub_YKB","sanpka 01","ECONOMY","18:00:00",105,12
+"MotherHub_YKB","MotherHub_BLR","REGULAR","08:00:00",15,4
+"MotherHub_YKB","HissarHub_HSS","REGULAR","18:00:00",14,2
+"MotherHub_YKB","MotherHub_DEL","ECONOMY","03:30:00",53,17
+"MotherHub_YKB","MotherHub_DEL","REGULAR","18:00:00",21,7
+"MotherHub_YKB","Farrukhnagar BTS Warehouse","REGULAR","18:00:00",10,5
+"MotherHub_YKB","HissarHub_HSS","REGULAR","09:00:00",6,3
+"MotherHub_YKB","IdentifyPlusBhadraODH_BHD","REGULAR","19:00:00",8,2
+"MotherHub_YKB","SirsaHub_SRS","REGULAR","19:00:00",8,2
+"MotherHub_YKB","Motherhub_PAT_BTS","ECONOMY","20:00:00",2,2
+"MotherHub_YKB","SirsaHub_SRS","REGULAR","09:00:00",3,1
+"MotherHub_YKB","DarbhangaHub_DBG","ECONOMY","20:00:00",2,1
+"MotherHub_YKB","Motherhub_CUT","REGULAR","16:00:00",1,1
+"MotherHub_YKB","MotherHub_NAG_BTS","ECONOMY","00:00:00",2,1
+"MotherHub_YKB","AirportrdHub_HSS","REGULAR","09:00:00",4,2
+"MotherHub_YKB","MotherHub_HJR","ECONOMY","19:00:00",3,1
+"MotherHub_YKB","MadhepuraHub_DMH","ECONOMY","20:00:00",1,1
+"MotherHub_YKB","Motherhub_GGN","REGULAR","18:00:00",2,1
+"MotherHub_YKB","Motherhub_ABD","ECONOMY","23:00:00",4,2
+"MotherHub_YKB","MotherHub_DEL","ECONOMY","12:30:00",7,3
+"MotherHub_YKB","MotherHub_DEL","REGULAR","12:30:00",8,3
+"MotherHub_YKB","Motherhub_HRN","ECONOMY","02:00:00",1,1
+"MotherHub_YKB","KwarsiHighwayHub_ALG","REGULAR","17:30:00",3,3
+"MotherHub_YKB","GroceryMH_BLR","REGULAR","08:00:00",1,1
+"MotherHub_YKB","AirportrdHub_HSS","REGULAR","18:00:00",6,2
+"MotherHub_YKB","Motherhub_GGN","ECONOMY","18:00:00",1,1
+"MotherHub_YKB","SaharanpurHub_SHP","REGULAR","09:00:00",1,1
+"MotherHub_YKB","GroceryMH_DEL","REGULAR","18:00:00",4,4
+"MotherHub_YKB","Motherhub_ABD","REGULAR","23:00:00",2,2
+"MotherHub_YKB","SarsawaHub_SHP","REGULAR","17:00:00",1,1
+"MotherHub_YKB","MotherHub_BAM","REGULAR","23:00:00",4,2
+"MotherHub_YKB","MyntraMH_BLP1","ECONOMY","21:00:00",1,1
+"MotherHub_YKB","Motherhub_GUW","ECONOMY","00:00:00",1,1
+"MotherHub_YKB","IdentifyPlusEllenabadODH_ELB","REGULAR","19:00:00",2,1
+"MotherHub_YKB","MotherHub_IDO","ECONOMY","05:30:00",1,1
+"MotherHub_YKB","ChakIslampurHub_MBB","ECONOMY","05:00:00",1,1

@@ -221,14 +221,20 @@ def listMaker(dataframe1 , dataframe2):
             data[index] = row + row1
     return data
 
-live_ppph = {"Live_PPPH" , ykb_ppph}
-live_ph = {"Live PH" , zo_ph_shipment_count + b5_ph_shipment_count}
-live_sph = {"Live SPH" , zo_sph_shipment_count + b5_sph_shipment_count}
-other_mh_ppph1 = {"Other MH PPPH" , other_mh_count}
-ppph_zo_ph = {"ZO PH" , zo_ph_shipment_count}
-ppph_b5_ph  = {"B5 PH" , b5_ph_shipment_count}
-ppph_zo_sph = {"ZO SPH" , zo_sph_shipment_count}
-ppph_b5_sph = {"B5 SPH" , b5_sph_shipment_count}
+live_ppph = {"Live_PPPH": ykb_ppph}
+live_ph = {"Live PH":  zo_ph_shipment_count + b5_ph_shipment_count}
+live_sph = {"Live SPH":  zo_sph_shipment_count + b5_sph_shipment_count}
+other_mh_ppph1 = {"Other MH PPPH":  other_mh_count}
+ppph_zo_ph = {"ZO PH":  zo_ph_shipment_count}
+ppph_b5_ph  = {"B5 PH":  b5_ph_shipment_count}
+ppph_zo_sph = {"ZO SPH": zo_sph_shipment_count}
+ppph_b5_sph = {"B5 SPH":  b5_sph_shipment_count}
+secondary_pending_zo_ph = {"Secondary Pending ZO PH": sum(df_secondary_zo_ph1)}
+secondary_pending_b5_ph = {"Secondary Pending B5 PH": sum(df_secondary_b5_ph1)}
+secondary_pending_zo_sph = {"Secondary Pending ZO SPH":  sum(df_secondary_zo_sph1)}
+secondary_pending_b5_sph  = {"Secondary Pending B5 SPH":  sum(df_secondary_b5_sph1)}
+secondary_pending_total_ph = {"Secondary Pending Total PH": sum(df_secondary_zo_ph1) + sum(df_secondary_b5_ph1)}
+secondary_pending_total_sph = {"Secondary Pending Total SPH": sum(df_secondary_zo_sph1) + sum(df_secondary_b5_sph1)}
 
 ppph_12_ph  = listMaker(final_zo_ph , final_b5_ph)
 ppph_12_sph = listMaker(final_zo_sph , final_zo_sph)
@@ -244,5 +250,11 @@ print(f"PPPH ZO SPH: {ppph_zo_sph}")
 print(f"PPPH B5 SPH: {ppph_b5_sph}")
 print(f"PPPH PH Ageing: {ppph_12_ph}")
 print(f"PPPH SPH Ageing: {ppph_12_sph}")
+print(secondary_pending_zo_ph)
+print(secondary_pending_b5_ph)
+print(secondary_pending_zo_sph)
+print(secondary_pending_b5_sph)
+print(secondary_pending_total_ph)
+print(secondary_pending_total_sph)
 
 
