@@ -217,8 +217,9 @@ final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , cur
 def listMaker(dataframe1 , dataframe2):
     data = {}
     for index , row in dataframe1.items():
-        for index , row1 in dataframe2.items():
-            data[index] = row + row1
+        for index1 , row1 in dataframe2.items():
+            if index == index1:
+                data[index] = row + row1
     return data
 
 live_ppph = {"Live_PPPH": ykb_ppph}
@@ -235,9 +236,18 @@ secondary_pending_zo_sph = {"Secondary Pending ZO SPH":  sum(df_secondary_zo_sph
 secondary_pending_b5_sph  = {"Secondary Pending B5 SPH":  sum(df_secondary_b5_sph1)}
 secondary_pending_total_ph = {"Secondary Pending Total PH": sum(df_secondary_zo_ph1) + sum(df_secondary_b5_ph1)}
 secondary_pending_total_sph = {"Secondary Pending Total SPH": sum(df_secondary_zo_sph1) + sum(df_secondary_b5_sph1)}
-
 ppph_12_ph  = listMaker(final_zo_ph , final_b5_ph)
 ppph_12_sph = listMaker(final_zo_sph , final_zo_sph)
+secondary_12_ph = listMaker(zo_ph_secondary_total , b5_ph_secondary_total)
+secondary_12_sph = listMaker(zo_sph_secondary_total ,b5_sph_secondary_total)
+bagging_pending_zo_ph = {"Bagging Pending ZO PH":  sum(zo_ph_bagging_count)}
+bagging_pending_zo_sph = {"Bagging Pending ZO SPH": sum(zo_sph_bagging_count)}
+bagging_pending_b5_ph = {"Bagging Pending B5 PH": sum(b5_ph_bagging_count)}
+bagging_pending_b5_sph = {"Bagging Pending B5 SPH": sum(b5_sph_bagging_count)}
+bagging_pending_total_ph = {"Bagging Pending Total PH": sum(zo_ph_bagging_count) + sum(b5_ph_bagging_count)}
+bagging_pending_total_sph = {"Bagging Pending Total SPH":  sum(zo_sph_bagging_count) + sum(b5_sph_bagging_count)}
+bagging_12_ph = listMaker(zo_ph_bagging_total , b5_ph_bagging_total)
+bagging_12_sph = listMaker(zo_sph_bagging_total , b5_sph_bagging_total)
 
 
 print(f"Live PH: {live_ph}")
@@ -256,5 +266,13 @@ print(secondary_pending_zo_sph)
 print(secondary_pending_b5_sph)
 print(secondary_pending_total_ph)
 print(secondary_pending_total_sph)
-
-
+print(f"Secondary Pending PH 12:  {secondary_12_ph}")
+print(f"Secondary Pending SPH 12:  {secondary_12_sph}")
+print(bagging_pending_zo_ph)
+print(bagging_pending_zo_sph)
+print(bagging_pending_b5_ph)
+print(bagging_pending_b5_sph)
+print(bagging_pending_total_ph)
+print(bagging_pending_total_sph)
+print(f"Bagging Pending PH 12: {bagging_12_ph}")
+print(f"Bagging Pending SPH 12: {bagging_12_sph}")
