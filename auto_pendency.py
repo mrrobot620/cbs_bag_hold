@@ -257,4 +257,3 @@ print(f"Outbound 12: {outbound_total_12_live}")
 print(f"Outbound 12 XD: {outbound_total_xd_12_live}")
 print(f"Outbound 12 SL:  {outbound_total_sl_12_live}")
 
-#  Pending Other MH 12 

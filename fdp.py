@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 import logging
 
 
-logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' )
+logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , level=logging.DEBUG )
 
 with open('fdp_links.txt' , 'r') as f:
     links = f.readlines()
@@ -113,7 +113,6 @@ def report_downloader(report_link):
         report_download.click()
         time.sleep(3)
         logging.warning(f"Fetched Sucessfully: {report_link}")
-        print(f"Fetched Sucessfully: {report_link}")
     except Exception as E:
         logging.warning(f"Error in fetching:   {report_link} : {E}")
 

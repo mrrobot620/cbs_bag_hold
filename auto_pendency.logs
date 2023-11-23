@@ -178,3 +178,18 @@
 11/24/2023 02:24:46 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 404 0
 11/24/2023 02:24:46 AM Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/div[3]/div/div/div/div[2]/button[1]\"}\n  (Session info: chrome=115.0.5790.102)","stacktrace":"#0 0x564602464613 \u003Cunknown>\n#1 0x564602190537 \u003Cunknown>\n#2 0x5646021cef53 \u003Cunknown>\n#3 0x5646021cf041 \u003Cunknown>\n#4 0x56460220a2a4 \u003Cunknown>\n#5 0x5646021efa5d \u003Cunknown>\n#6 0x564602207d09 \u003Cunknown>\n#7 0x5646021ef803 \u003Cunknown>\n#8 0x5646021c368b \u003Cunknown>\n#9 0x5646021c442e \u003Cunknown>\n#10 0x564602425c28 \u003Cunknown>\n#11 0x564602429af7 \u003Cunknown>\n#12 0x56460243401c \u003Cunknown>\n#13 0x56460242a723 \u003Cunknown>\n#14 0x5646023f9457 \u003Cunknown>\n#15 0x56460244e628 \u003Cunknown>\n#16 0x56460244e7b7 \u003Cunknown>\n#17 0x56460245d483 \u003Cunknown>\n#18 0x7fad120c5609 start_thread\n"}} | headers=HTTPHeaderDict({'Content-Length': '889', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
 11/24/2023 02:24:46 AM Finished Request
+11/24/2023 03:15:20 AM Error Secondary File not found:  [Errno 2] No such file or directory: 'ykb_secondary_pending_abhi.csv'
+11/24/2023 03:15:20 AM Error Outbound file not Found: [Errno 2] No such file or directory: 'ykb_outbound.csv'
+11/24/2023 03:15:20 AM Error Outbound12 File not found [Errno 2] No such file or directory: 'ykb_outbond_pending_greater_than_12.csv'
+11/24/2023 03:15:20 AM Error PPPH File not Found [Errno 2] No such file or directory: 'ykb_pendency_automation_PPPH.csv'
+11/24/2023 03:15:20 AM Error while reading the Bagging File [Errno 2] No such file or directory: 'ykb_bagging_pending_automation_abhi.csv'
+11/24/2023 03:15:20 AM Error while reading PPPH12 File [Errno 2] No such file or directory: 'Pendency_automation_report_ageing_greater_than_12.csv'
+11/24/2023 03:15:20 AM Error while Reading the Outbond XD file [Errno 2] No such file or directory: 'ykb_outbond_crossdock_abhi.csv'
+11/24/2023 03:15:20 AM Error Outbond SL File not found [Errno 2] No such file or directory: 'outbond_semi_large_abhi.csv'
+11/24/2023 03:15:20 AM Error while reading Outbound XD 12 File: [Errno 2] No such file or directory: 'ykb_outbound_xd_greater_than_12.csv'
+11/24/2023 03:15:20 AM Error while reading Outbound SL 12 File  [Errno 2] No such file or directory: 'ykb_outbound_sl_greater_than-12.csv'
+11/24/2023 03:15:20 AM Error while Processing Secondary File:  name 'df_secondary' is not defined
+11/24/2023 03:15:20 AM Error while Processing OB Files:  name 'outbond_df' is not defined
+11/24/2023 03:15:20 AM : Error while Processing the PPPH Files : name 'df_ppph1' is not defined
+11/24/2023 03:15:20 AM : Error while Processing the Bagging File : name 'df_bagging' is not defined
+11/24/2023 03:15:20 AM : Error while Processing the PPPH greater than 12 Aging File:  name 'df' is not defined
