@@ -1,0 +1,180 @@
+11/24/2023 02:16:15 AM Selenium Manager binary found at: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager
+11/24/2023 02:16:15 AM Executing process: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --debug --output json
+11/24/2023 02:16:15 AM chromedriver not found in PATH
+11/24/2023 02:16:15 AM chrome detected at /usr/bin/google-chrome
+11/24/2023 02:16:15 AM Running command: /usr/bin/google-chrome --version
+11/24/2023 02:16:15 AM Output: "Google Chrome 115.0.5790.102 "
+11/24/2023 02:16:15 AM Detected browser: chrome 115.0.5790.102
+11/24/2023 02:16:15 AM Required driver: chromedriver 115.0.5790.170
+11/24/2023 02:16:15 AM chromedriver 115.0.5790.170 already in the cache
+11/24/2023 02:16:15 AM Driver path: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:16:15 AM Browser path: /usr/bin/google-chrome
+11/24/2023 02:16:15 AM Using driver at: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:16:15 AM Started executable: `/home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver` in a child process with pid: 1605541
+11/24/2023 02:16:15 AM POST http://localhost:37003/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "browserVersion": null, "goog:chromeOptions": {"prefs": {"profile.default_content_settings.popups": 0, "download.default_directory": "/home/administrator/data", "directory_upgrade": true}, "extensions": [], "binary": "/usr/bin/google-chrome", "args": ["--headless=new"]}}}}
+11/24/2023 02:16:15 AM Starting new HTTP connection (1): localhost:37003
+11/24/2023 02:16:15 AM http://localhost:37003 "POST /session HTTP/1.1" 200 0
+11/24/2023 02:16:15 AM Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"115.0.5790.102","chrome":{"chromedriverVersion":"115.0.5790.170 (cc0d30c2ca5577520c8646671513241faa0bc105-refs/branch-heads/5790@{#1923})","userDataDir":"/tmp/.org.chromium.Chromium.Av9nNG"},"goog:chromeOptions":{"debuggerAddress":"localhost:43851"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"linux","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"2f3aee04bc65b476ed5f4df97e7e6a3d"}} | headers=HTTPHeaderDict({'Content-Length': '828', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:16:15 AM Finished Request
+11/24/2023 02:16:15 AM POST http://localhost:37003/session/2f3aee04bc65b476ed5f4df97e7e6a3d/url {"url": "http://fdp.fkinternal.com"}
+11/24/2023 02:16:16 AM http://localhost:37003 "POST /session/2f3aee04bc65b476ed5f4df97e7e6a3d/url HTTP/1.1" 200 0
+11/24/2023 02:16:16 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:16:16 AM Finished Request
+11/24/2023 02:16:21 AM GET http://localhost:37003/session/2f3aee04bc65b476ed5f4df97e7e6a3d/title {}
+11/24/2023 02:16:21 AM http://localhost:37003 "GET /session/2f3aee04bc65b476ed5f4df97e7e6a3d/title HTTP/1.1" 200 0
+11/24/2023 02:16:21 AM Remote response: status=200 | data={"value":"Login (AuthN)"} | headers=HTTPHeaderDict({'Content-Length': '25', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:16:21 AM Finished Request
+11/24/2023 02:16:51 AM Selenium Manager binary found at: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager
+11/24/2023 02:16:51 AM Executing process: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --debug --output json
+11/24/2023 02:16:52 AM chromedriver not found in PATH
+11/24/2023 02:16:52 AM chrome detected at /usr/bin/google-chrome
+11/24/2023 02:16:52 AM Running command: /usr/bin/google-chrome --version
+11/24/2023 02:16:52 AM Output: "Google Chrome 115.0.5790.102 "
+11/24/2023 02:16:52 AM Detected browser: chrome 115.0.5790.102
+11/24/2023 02:16:52 AM Required driver: chromedriver 115.0.5790.170
+11/24/2023 02:16:52 AM chromedriver 115.0.5790.170 already in the cache
+11/24/2023 02:16:52 AM Driver path: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:16:52 AM Browser path: /usr/bin/google-chrome
+11/24/2023 02:16:52 AM Using driver at: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:16:52 AM Started executable: `/home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver` in a child process with pid: 1605843
+11/24/2023 02:16:52 AM POST http://localhost:38027/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "browserVersion": null, "goog:chromeOptions": {"prefs": {"profile.default_content_settings.popups": 0, "download.default_directory": "/home/administrator/data", "directory_upgrade": true}, "extensions": [], "binary": "/usr/bin/google-chrome", "args": ["--headless=new"]}}}}
+11/24/2023 02:16:52 AM Starting new HTTP connection (1): localhost:38027
+11/24/2023 02:16:52 AM http://localhost:38027 "POST /session HTTP/1.1" 200 0
+11/24/2023 02:16:52 AM Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"115.0.5790.102","chrome":{"chromedriverVersion":"115.0.5790.170 (cc0d30c2ca5577520c8646671513241faa0bc105-refs/branch-heads/5790@{#1923})","userDataDir":"/tmp/.org.chromium.Chromium.Jg0uQw"},"goog:chromeOptions":{"debuggerAddress":"localhost:44391"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"linux","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"8777a63d209fed416a8f66d338e3c40d"}} | headers=HTTPHeaderDict({'Content-Length': '828', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:16:52 AM Finished Request
+11/24/2023 02:16:52 AM POST http://localhost:38027/session/8777a63d209fed416a8f66d338e3c40d/url {"url": "http://fdp.fkinternal.com"}
+11/24/2023 02:16:53 AM http://localhost:38027 "POST /session/8777a63d209fed416a8f66d338e3c40d/url HTTP/1.1" 200 0
+11/24/2023 02:16:53 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:16:53 AM Finished Request
+11/24/2023 02:23:17 AM Selenium Manager binary found at: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager
+11/24/2023 02:23:17 AM Executing process: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --debug --output json
+11/24/2023 02:23:18 AM chromedriver not found in PATH
+11/24/2023 02:23:18 AM chrome detected at /usr/bin/google-chrome
+11/24/2023 02:23:18 AM Running command: /usr/bin/google-chrome --version
+11/24/2023 02:23:18 AM Output: "Google Chrome 115.0.5790.102 "
+11/24/2023 02:23:18 AM Detected browser: chrome 115.0.5790.102
+11/24/2023 02:23:18 AM Required driver: chromedriver 115.0.5790.170
+11/24/2023 02:23:18 AM chromedriver 115.0.5790.170 already in the cache
+11/24/2023 02:23:18 AM Driver path: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:23:18 AM Browser path: /usr/bin/google-chrome
+11/24/2023 02:23:18 AM Using driver at: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:23:18 AM Started executable: `/home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver` in a child process with pid: 1606514
+11/24/2023 02:23:18 AM POST http://localhost:58995/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "browserVersion": null, "goog:chromeOptions": {"prefs": {"profile.default_content_settings.popups": 0, "download.default_directory": "/home/administrator/data", "directory_upgrade": true}, "extensions": [], "binary": "/usr/bin/google-chrome", "args": ["--headless=new"]}}}}
+11/24/2023 02:23:18 AM Starting new HTTP connection (1): localhost:58995
+11/24/2023 02:23:18 AM http://localhost:58995 "POST /session HTTP/1.1" 200 0
+11/24/2023 02:23:18 AM Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"115.0.5790.102","chrome":{"chromedriverVersion":"115.0.5790.170 (cc0d30c2ca5577520c8646671513241faa0bc105-refs/branch-heads/5790@{#1923})","userDataDir":"/tmp/.org.chromium.Chromium.8Eu2ue"},"goog:chromeOptions":{"debuggerAddress":"localhost:40209"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"linux","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"dea5516f0fb5b185433f0d54a37464e8"}} | headers=HTTPHeaderDict({'Content-Length': '828', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:18 AM Finished Request
+11/24/2023 02:23:18 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/url {"url": "http://fdp.fkinternal.com"}
+11/24/2023 02:23:19 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/url HTTP/1.1" 200 0
+11/24/2023 02:23:19 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:19 AM Finished Request
+11/24/2023 02:23:24 AM GET http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/title {}
+11/24/2023 02:23:24 AM http://localhost:58995 "GET /session/dea5516f0fb5b185433f0d54a37464e8/title HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":"Login (AuthN)"} | headers=HTTPHeaderDict({'Content-Length': '25', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/window/maximize {}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/window/maximize HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":{"height":600,"width":800,"x":0,"y":0}} | headers=HTTPHeaderDict({'Content-Length': '48', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[1]"}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"637EC6DA5479D2DEEA2B1BB9B04A0223_element_15"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_15/value {"text": "ca.2670054", "value": ["c", "a", ".", "2", "6", "7", "0", "0", "5", "4"]}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_15/value HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[2]"}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"637EC6DA5479D2DEEA2B1BB9B04A0223_element_20"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_20/value {"text": "Veer@809", "value": ["V", "e", "e", "r", "@", "8", "0", "9"]}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_20/value HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element {"using": "xpath", "value": "/html/body/div[4]/div/button"}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"637EC6DA5479D2DEEA2B1BB9B04A0223_element_21"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:24 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_21/click {}
+11/24/2023 02:23:24 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_21/click HTTP/1.1" 200 0
+11/24/2023 02:23:24 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:24 AM Finished Request
+11/24/2023 02:23:25 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/div[4]/button/span"}
+11/24/2023 02:23:25 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element HTTP/1.1" 200 0
+11/24/2023 02:23:25 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"637EC6DA5479D2DEEA2B1BB9B04A0223_element_22"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:25 AM Finished Request
+11/24/2023 02:23:25 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_22/click {}
+11/24/2023 02:23:26 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element/637EC6DA5479D2DEEA2B1BB9B04A0223_element_22/click HTTP/1.1" 200 0
+11/24/2023 02:23:26 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:26 AM Finished Request
+11/24/2023 02:23:31 AM POST http://localhost:58995/session/dea5516f0fb5b185433f0d54a37464e8/element {"using": "xpath", "value": "/html/body/div[3]/div/div/div/div[2]/button[1]"}
+11/24/2023 02:23:31 AM http://localhost:58995 "POST /session/dea5516f0fb5b185433f0d54a37464e8/element HTTP/1.1" 404 0
+11/24/2023 02:23:31 AM Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/div[3]/div/div/div/div[2]/button[1]\"}\n  (Session info: chrome=115.0.5790.102)","stacktrace":"#0 0x55edc2f4f613 \u003Cunknown>\n#1 0x55edc2c7b537 \u003Cunknown>\n#2 0x55edc2cb9f53 \u003Cunknown>\n#3 0x55edc2cba041 \u003Cunknown>\n#4 0x55edc2cf52a4 \u003Cunknown>\n#5 0x55edc2cdaa5d \u003Cunknown>\n#6 0x55edc2cf2d09 \u003Cunknown>\n#7 0x55edc2cda803 \u003Cunknown>\n#8 0x55edc2cae68b \u003Cunknown>\n#9 0x55edc2caf42e \u003Cunknown>\n#10 0x55edc2f10c28 \u003Cunknown>\n#11 0x55edc2f14af7 \u003Cunknown>\n#12 0x55edc2f1f01c \u003Cunknown>\n#13 0x55edc2f15723 \u003Cunknown>\n#14 0x55edc2ee4457 \u003Cunknown>\n#15 0x55edc2f39628 \u003Cunknown>\n#16 0x55edc2f397b7 \u003Cunknown>\n#17 0x55edc2f48483 \u003Cunknown>\n#18 0x7f7aa2616609 start_thread\n"}} | headers=HTTPHeaderDict({'Content-Length': '889', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:23:31 AM Finished Request
+11/24/2023 02:24:31 AM Selenium Manager binary found at: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager
+11/24/2023 02:24:31 AM Executing process: /usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/linux/selenium-manager --browser chrome --debug --output json
+11/24/2023 02:24:31 AM chromedriver not found in PATH
+11/24/2023 02:24:31 AM chrome detected at /usr/bin/google-chrome
+11/24/2023 02:24:31 AM Running command: /usr/bin/google-chrome --version
+11/24/2023 02:24:31 AM Output: "Google Chrome 115.0.5790.102 "
+11/24/2023 02:24:31 AM Detected browser: chrome 115.0.5790.102
+11/24/2023 02:24:31 AM Required driver: chromedriver 115.0.5790.170
+11/24/2023 02:24:31 AM chromedriver 115.0.5790.170 already in the cache
+11/24/2023 02:24:31 AM Driver path: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:24:31 AM Browser path: /usr/bin/google-chrome
+11/24/2023 02:24:31 AM Using driver at: /home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver
+11/24/2023 02:24:31 AM Started executable: `/home/administrator/.cache/selenium/chromedriver/linux64/115.0.5790.170/chromedriver` in a child process with pid: 1607100
+11/24/2023 02:24:32 AM POST http://localhost:49353/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "browserVersion": null, "goog:chromeOptions": {"prefs": {"profile.default_content_settings.popups": 0, "download.default_directory": "/home/administrator/data", "directory_upgrade": true}, "extensions": [], "binary": "/usr/bin/google-chrome", "args": ["--headless=new"]}}}}
+11/24/2023 02:24:32 AM Starting new HTTP connection (1): localhost:49353
+11/24/2023 02:24:32 AM http://localhost:49353 "POST /session HTTP/1.1" 200 0
+11/24/2023 02:24:32 AM Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"115.0.5790.102","chrome":{"chromedriverVersion":"115.0.5790.170 (cc0d30c2ca5577520c8646671513241faa0bc105-refs/branch-heads/5790@{#1923})","userDataDir":"/tmp/.org.chromium.Chromium.Yhbbfy"},"goog:chromeOptions":{"debuggerAddress":"localhost:35197"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"linux","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"29d5b6a57464e7460d2ac03edf4040f3"}} | headers=HTTPHeaderDict({'Content-Length': '828', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:32 AM Finished Request
+11/24/2023 02:24:32 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/url {"url": "http://fdp.fkinternal.com"}
+11/24/2023 02:24:33 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/url HTTP/1.1" 200 0
+11/24/2023 02:24:33 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:33 AM Finished Request
+11/24/2023 02:24:38 AM GET http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/title {}
+11/24/2023 02:24:38 AM http://localhost:49353 "GET /session/29d5b6a57464e7460d2ac03edf4040f3/title HTTP/1.1" 200 0
+11/24/2023 02:24:38 AM Remote response: status=200 | data={"value":"Login (AuthN)"} | headers=HTTPHeaderDict({'Content-Length': '25', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:38 AM Finished Request
+11/24/2023 02:24:38 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/window/maximize {}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/window/maximize HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":{"height":600,"width":800,"x":0,"y":0}} | headers=HTTPHeaderDict({'Content-Length': '48', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[1]"}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"EAEBE7929C1B78D4E56A11B65B867F96_element_7"}} | headers=HTTPHeaderDict({'Content-Length': '94', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_7/value {"text": "ca.2670054", "value": ["c", "a", ".", "2", "6", "7", "0", "0", "5", "4"]}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_7/value HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[2]"}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"EAEBE7929C1B78D4E56A11B65B867F96_element_20"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_20/value {"text": "Veer@809", "value": ["V", "e", "e", "r", "@", "8", "0", "9"]}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_20/value HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element {"using": "xpath", "value": "/html/body/div[4]/div/button"}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"EAEBE7929C1B78D4E56A11B65B867F96_element_21"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:39 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_21/click {}
+11/24/2023 02:24:39 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_21/click HTTP/1.1" 200 0
+11/24/2023 02:24:39 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:39 AM Finished Request
+11/24/2023 02:24:40 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element {"using": "xpath", "value": "/html/body/div[2]/div[2]/div/div/form/div/div[4]/div[4]/button/span"}
+11/24/2023 02:24:40 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 200 0
+11/24/2023 02:24:40 AM Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"EAEBE7929C1B78D4E56A11B65B867F96_element_22"}} | headers=HTTPHeaderDict({'Content-Length': '95', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:40 AM Finished Request
+11/24/2023 02:24:40 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_22/click {}
+11/24/2023 02:24:41 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element/EAEBE7929C1B78D4E56A11B65B867F96_element_22/click HTTP/1.1" 200 0
+11/24/2023 02:24:41 AM Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:41 AM Finished Request
+11/24/2023 02:24:46 AM POST http://localhost:49353/session/29d5b6a57464e7460d2ac03edf4040f3/element {"using": "xpath", "value": "/html/body/div[3]/div/div/div/div[2]/button[1]"}
+11/24/2023 02:24:46 AM http://localhost:49353 "POST /session/29d5b6a57464e7460d2ac03edf4040f3/element HTTP/1.1" 404 0
+11/24/2023 02:24:46 AM Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/div[3]/div/div/div/div[2]/button[1]\"}\n  (Session info: chrome=115.0.5790.102)","stacktrace":"#0 0x564602464613 \u003Cunknown>\n#1 0x564602190537 \u003Cunknown>\n#2 0x5646021cef53 \u003Cunknown>\n#3 0x5646021cf041 \u003Cunknown>\n#4 0x56460220a2a4 \u003Cunknown>\n#5 0x5646021efa5d \u003Cunknown>\n#6 0x564602207d09 \u003Cunknown>\n#7 0x5646021ef803 \u003Cunknown>\n#8 0x5646021c368b \u003Cunknown>\n#9 0x5646021c442e \u003Cunknown>\n#10 0x564602425c28 \u003Cunknown>\n#11 0x564602429af7 \u003Cunknown>\n#12 0x56460243401c \u003Cunknown>\n#13 0x56460242a723 \u003Cunknown>\n#14 0x5646023f9457 \u003Cunknown>\n#15 0x56460244e628 \u003Cunknown>\n#16 0x56460244e7b7 \u003Cunknown>\n#17 0x56460245d483 \u003Cunknown>\n#18 0x7fad120c5609 start_thread\n"}} | headers=HTTPHeaderDict({'Content-Length': '889', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+11/24/2023 02:24:46 AM Finished Request

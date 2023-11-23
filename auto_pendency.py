@@ -146,8 +146,6 @@ def calculate_and_categorize_time(dataframe, column_name, current_time  , bucket
             return '24-48 hours'
         elif hour_diff > 11:
             return '12-24 hours'
-        else:
-            return '< 12 hours'
     
     dataframe["hour_diff"] = df_hour_wise
     dataframe[bucket_name] = df_hour_wise.apply(categorize_time)
