@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 import pytz
 import logging
+import pymysql
 
 time_zone = pytz.timezone('Asia/Kolkata')
 current_time= datetime.now(time_zone)
@@ -10,6 +11,14 @@ current_time= datetime.now(time_zone)
 
 logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , level=logging.DEBUG )
 
+conn = pymysql.connect(
+    host='localhost',
+    user='abhishek',
+    password='abhi',
+    db='pendency',
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
+)
 
 try:
     df_secondary = pd.read_csv('ykb_secondary_pending_abhi.csv')
@@ -99,8 +108,6 @@ try:
 except Exception as E:
     logging.debug(f": Error while Processing the PPPH Files : {E}")
 
-
-# Bagging Pending 
 try:
     df_bagging_zo = df_bagging[df_bagging['bag_type_ph'] == "ZO"]
     df_bagging_zo['bag_facility_source_name'].fillna("Not Found" , inplace=True)
@@ -257,3 +264,43 @@ print(f"Outbound 12: {outbound_total_12_live}")
 print(f"Outbound 12 XD: {outbound_total_xd_12_live}")
 print(f"Outbound 12 SL:  {outbound_total_sl_12_live}")
 
+
+
+
+def dict_to_sql(item):
+    cursor = conn.cursor()
+    try:
+        for key, value in item.items():
+            insert_query = "insert into live_values (zone, count) values (%s, %s)"
+            cursor.execute(insert_query, (key, value))
+        conn.commit()
+    except Exception as e:
+        print(f"Error: {e}")
+        conn.rollback()  # Rollback changes in case of an error
+    finally:
+        cursor.close()  
+
+dict_to_sql(live_ph)
+dict_to_sql(live_sph)
+dict_to_sql(live_ppph)
+dict_to_sql(ppph_zo_ph)
+dict_to_sql(ppph_zo_ph)
+dict_to_sql(ppph_zo_sph)
+dict_to_sql(ppph_b5_sph)
+dict_to_sql(secondary_pending_zo_ph)
+dict_to_sql(secondary_pending_b5_ph)
+dict_to_sql(secondary_pending_zo_sph)
+dict_to_sql(secondary_pending_b5_sph)
+dict_to_sql(secondary_pending_total_ph)
+dict_to_sql(secondary_pending_total_sph)
+dict_to_sql(bagging_pending_zo_ph)
+dict_to_sql(bagging_pending_zo_sph)
+dict_to_sql(bagging_pending_b5_ph)
+dict_to_sql(bagging_pending_b5_sph)
+dict_to_sql(bagging_pending_total_ph)
+dict_to_sql(bagging_pending_total_sph)
+dict_to_sql(outbound_total_live)
+dict_to_sql(outbound_sl_live)
+dict_to_sql(outbound_xd_live)
+
+conn.close()

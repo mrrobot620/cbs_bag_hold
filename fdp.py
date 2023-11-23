@@ -112,6 +112,7 @@ def report_downloader(report_link):
         report_download = driver.find_element(By.XPATH , "/html/body/div/div/div[2]/div[5]/div/div[2]/div/div[1]/div[1]/button")
         report_download.click()
         time.sleep(3)
+        print(f"Fetched Sucessfully: {report_link}")
         logging.warning(f"Fetched Sucessfully: {report_link}")
     except Exception as E:
         logging.warning(f"Error in fetching:   {report_link} : {E}")
