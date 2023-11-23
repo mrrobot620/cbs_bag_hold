@@ -68,7 +68,6 @@ try:
     df_secondary_b5_sph = df_secondary_b5[~df_secondary_b5.index.isin(df_secondary_b5_ph.index)]
     df_secondary_b5_ph1 = df_secondary_b5_ph.groupby('bag_facility_source_name').size()
     df_secondary_b5_sph1 = df_secondary_b5_sph.groupby('bag_facility_source_name').size()
-    logging.debug(": Success Processing Secondary Pendency File")
 except Exception as E:
     logging.error(f"Error while Processing Secondary File:  {E}")
 
@@ -78,7 +77,6 @@ try:
     outbound_total = outbond_df['tracking_id_merchant'].sum()
     outbound_xd_total = outbond_xd['tracking_id_merchant'].sum()
     outbound_sl_total = outbond_sl['tracking_id_merchant'].sum()
-    logging.debug(": Success Processing OB Files")
 except Exception as E:
     logging.error(f"Error while Processing OB Files:  {E}")
 
@@ -98,7 +96,6 @@ try:
     b5_ph_shipment_count = df_ppph_b5_ph['tracking_id_ekart'].sum()
     df_ppph_b5_sph = df_ppph_b5[~df_ppph_b5.index.isin(df_ppph_b5_ph.index)]
     b5_sph_shipment_count = df_ppph_b5_sph['tracking_id_ekart'].sum()
-    logging.debug(f": Success PPPH File ")
 except Exception as E:
     logging.debug(f": Error while Processing the PPPH Files : {E}")
 
@@ -117,7 +114,6 @@ try:
     df_bagging_b5_sph = df_bagging_b5[~df_bagging_b5.index.isin(df_bagging_b5_ph.index)]
     b5_ph_bagging_count = df_bagging_b5_ph.groupby("bag_facility_source_name").size()
     b5_sph_bagging_count = df_bagging_b5_sph.groupby("bag_facility_source_name").size()
-    logging.warning(": Success while Processing Bagging File")
 except Exception as E:
     logging.warning(f": Error while Processing the Bagging File : {E}")
 
@@ -134,7 +130,6 @@ try:
     df_b5_ph_wise  = df_b5_ph.groupby('bag_facility_source_name').size()
     df_b5_sph  = df_b5[~df_b5.index.isin(df_b5_ph.index)]
     df_b5_sph_wise = df_b5_sph.groupby('bag_facility_source_name').size()
-    logging.warning(": Success while Processing the PPPH greater than 12 Aging File")
 except Exception as E:
     logging.warning(f": Error while Processing the PPPH greater than 12 Aging File:  {E}")
 

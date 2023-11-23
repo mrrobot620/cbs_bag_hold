@@ -1,0 +1,10 @@
+1 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_secondary_pending_abhi
+2 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_outbound
+3 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_outbond_pending_greater_than_12
+4 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_pendency_automation_PPPH
+5 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_bagging_pending_automation_abhi
+6 - http://fdp.fkinternal.com/reports/view/scp/ekl/Pendency_automation_report_ageing_greater_than_12
+7 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_outbond_crossdock_abhi
+8 - http://fdp.fkinternal.com/reports/view/scp/ekl/outbond_semi_large_abhi
+9 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_outbound_xd_greater_than_12
+10 - http://fdp.fkinternal.com/reports/view/scp/ekl/ykb_outbound_sl_greater_than-12
