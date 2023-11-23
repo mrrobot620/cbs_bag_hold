@@ -70,11 +70,11 @@ except Exception as E:
 
 # OutBond Pending Automation Part
 try:
-    outbond_total = outbond_df['tracking_id_merchant'].sum()
+    outbound_total = outbond_df['tracking_id_merchant'].sum()
     # print(f"Total Outbond:  {outbond_total}")
-    outbond_xd_total = outbond_xd['tracking_id_merchant'].sum()
+    outbound_xd_total = outbond_xd['tracking_id_merchant'].sum()
     # print(f"Total Cross-Dock Outbond:  {outbond_xd_total}")
-    outbond_sl_total = outbond_sl['tracking_id_merchant'].sum()
+    outbound_sl_total = outbond_sl['tracking_id_merchant'].sum()
     # print(f"Total OutBond Semi-Large: {outbond_sl_total} ")
     logging.debug(": Success Processing OB Files")
 except Exception as E:
@@ -248,7 +248,9 @@ bagging_pending_total_ph = {"Bagging Pending Total PH": sum(zo_ph_bagging_count)
 bagging_pending_total_sph = {"Bagging Pending Total SPH":  sum(zo_sph_bagging_count) + sum(b5_sph_bagging_count)}
 bagging_12_ph = listMaker(zo_ph_bagging_total , b5_ph_bagging_total)
 bagging_12_sph = listMaker(zo_sph_bagging_total , b5_sph_bagging_total)
-
+outbound_total_live = {"Outbound Total Live":  outbound_total}
+outbound_sl_live = {"Outbound SL Live": outbound_sl_total}
+outbound_xd_live = {"Outbound XD Live": outbound_xd_total}
 
 print(f"Live PH: {live_ph}")
 print(f"Live SPH: {live_sph}")
@@ -276,3 +278,7 @@ print(bagging_pending_total_ph)
 print(bagging_pending_total_sph)
 print(f"Bagging Pending PH 12: {bagging_12_ph}")
 print(f"Bagging Pending SPH 12: {bagging_12_sph}")
+print(outbound_total_live)
+print(outbound_sl_live)
+print(outbound_xd_live)
+#  Pending Other MH 12 , Outbound Cross Dock 12 , and OutBound SL 12
