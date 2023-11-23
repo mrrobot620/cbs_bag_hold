@@ -41,6 +41,10 @@ try:
     outbond_sl = pd.read_csv('outbond_semi_large_abhi.csv')
 except Exception as E:
     logging.warning(f"Error Outbond SL File not found {E}")
+try:
+    outbound_12_xd = pd.read_csv("ykb_outbound_xd_greater_than_12.csv")
+except Exception as E:
+    logging.warning(F"Error while reading Outbound XD 12 File: {E}")
 
 
 try:
@@ -189,7 +193,7 @@ b5_sph_secondary_total = calculate_and_categorize_time(df_secondary_b5_sph , 'fa
 ## Outbond Pending Automation Part
 outbond_12_pendency = calculate_and_categorize_time(outbond_12 , 'fact_updated_at' , current_time , "Outbond Pendency")
 # print(f"OutBond Pendency {outbond_12_pendency}")
-
+outbound_12_xd_total = calculate_and_categorize_time(outbound_12_xd , 'fact_updated_at' , current_time , "Outbound Cross Dock")
 # Bagging Pending 
 zo_ph_bagging_total = calculate_and_categorize_time(df_bagging_zo_ph , 'fact_updated_at' , current_time , "ZO Bagging Pending PH: ")
 # print(zo_ph_bagging_total)
@@ -222,6 +226,14 @@ def listMaker(dataframe1 , dataframe2):
                 data[index] = row + row1
     return data
 
+def listMaker1(dataframe1):
+    data = {}
+    for index , row in dataframe1.items():
+        data[index] = row
+    return data
+
+
+    
 live_ppph = {"Live_PPPH": ykb_ppph}
 live_ph = {"Live PH":  zo_ph_shipment_count + b5_ph_shipment_count}
 live_sph = {"Live SPH":  zo_sph_shipment_count + b5_sph_shipment_count}
@@ -251,6 +263,8 @@ bagging_12_sph = listMaker(zo_sph_bagging_total , b5_sph_bagging_total)
 outbound_total_live = {"Outbound Total Live":  outbound_total}
 outbound_sl_live = {"Outbound SL Live": outbound_sl_total}
 outbound_xd_live = {"Outbound XD Live": outbound_xd_total}
+outbound_total_12_live = listMaker1(outbond_12_pendency)
+outbound_total_xd_12_live = listMaker1(outbound_12_xd_total)
 
 print(f"Live PH: {live_ph}")
 print(f"Live SPH: {live_sph}")
@@ -281,4 +295,6 @@ print(f"Bagging Pending SPH 12: {bagging_12_sph}")
 print(outbound_total_live)
 print(outbound_sl_live)
 print(outbound_xd_live)
+print(f"Outbound 12: {outbound_total_12_live}")
+print(f"Outbound 12 XD: {outbound_total_xd_12_live}")
 #  Pending Other MH 12 , Outbound Cross Dock 12 , and OutBound SL 12
