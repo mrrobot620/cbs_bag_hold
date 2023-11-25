@@ -20,12 +20,45 @@ conn = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor
 )
 
-def check_table_exists():
-    query = "SHOW TABLES"
+sql_tables = ["live_values" , "ppph_12_ph" , "ppph_12_sph" , "secondary_12_ph" , 'secondary_12_sph' , 'bagging_12_ph' , 'bagging_12_sph' , "outbound_total_12_live" , "outbound_total_xd_12_live" , "outbound_total_sl_12_live"]
+
+def table_creator():
+    try:
+        with conn.cursor() as cursor:
+            for table in sql_tables:
+                sql = f"CREATE TABLE IF NOT EXISTS {table} (bucket VARCHAR(255) PRIMARY KEY, count INT)"
+                cursor.execute(sql)
+        conn.commit()
+        print("Sql Table Created")
+    except Exception as e:
+        logging.warning(f"Error in Creaating Table:  {e}")
+    # finally:
+    #     conn.close()
+
+def table_truncator():
+    try:
+        with conn.cursor() as cursor:
+            for table in sql_tables:
+                sql = f"TRUNCATE TABLE {sql}"
+                cursor.execute(sql)
+        conn.commit()
+        print("Table Truncated")
+    except Exception as e:
+        logging.warning(f"Error in Truncating the Table: {e}")
+    # finally:
+    #     conn.close()
+
+        
+table_creator()
+table_truncator()
+
+def table_exists():
+    query = f"SHOW TABLES"
     with conn.cursor() as cursor:
         cursor.execute(query)
-        result = cursor.fetchone()
-        return print(result)
+        result = cursor.fetchall()
+        return result
+
 
 try:
     df_secondary = pd.read_csv('ykb_secondary_pending_abhi.csv')
@@ -267,32 +300,38 @@ print(f"Outbound 12: {outbound_total_12_live}")
 print(f"Outbound 12 XD: {outbound_total_xd_12_live}")
 print(f"Outbound 12 SL:  {outbound_total_sl_12_live}")
 
-def ageing_to_sql(item  , table_name):
-    cursor = conn.cursor()
+def ageing_to_sql(item, table_name):
     try:
-        for key , value in item.items():
-            sql = f"insert into {table_name} (bucket , count) values (%s  , %s)"
-            cursor.execute(sql , (key , value))
-        conn.commit()
+        with conn.cursor() as cursor:
+            for key, value in item.items():
+                insert_query = """
+                    INSERT INTO {table_name} (bucket, count)
+                    VALUES (%s, %s)
+                    ON DUPLICATE KEY UPDATE count = %s
+                """.format(table_name=table_name)
+                cursor.execute(insert_query, (key, value, value))
+            conn.commit()
     except Exception as e:
-        print(f"Error:  {e}")
-        conn.rollback()
-    finally:
-        cursor.close()
+        print(f"Error: {e}")
+        conn.rollback()  
 
 def dict_to_sql(item):
-    cursor = conn.cursor()
     try:
-        for key, value in item.items():
-            insert_query = "insert into live_values (zone, count) values (%s, %s)"
-            cursor.execute(insert_query, (key, value))
-        conn.commit()
+        with conn.cursor() as cursor:
+            for key, value in item.items():
+                insert_query = """
+                    INSERT INTO live_values (bucket, count)
+                    VALUES (%s, %s)
+                    ON DUPLICATE KEY UPDATE count = %s
+                """
+                # Pass the value twice for insert and update
+                cursor.execute(insert_query, (key, value, value))
+            conn.commit()
     except Exception as e:
         print(f"Error: {e}")
         conn.rollback()  # Rollback changes in case of an error
     finally:
-        cursor.close()  
-
+        cursor.close()
 
 
 
@@ -321,12 +360,12 @@ dict_to_sql(outbound_sl_live)
 dict_to_sql(outbound_xd_live)
 ageing_to_sql(ppph_12_ph , "ppph_12_ph")
 ageing_to_sql(ppph_12_sph , "ppph_12_sph")
-ageing_to_sql(secondary_12_ph , "secondary_12_sph")
+ageing_to_sql(secondary_12_ph , "secondary_12_ph")
 ageing_to_sql(secondary_12_sph , 'secondary_12_sph')
 ageing_to_sql(bagging_12_ph , 'bagging_12_ph')
 ageing_to_sql(bagging_12_sph , 'bagging_12_sph')
 ageing_to_sql(outbound_total_12_live , 'outbound_total_12_live')
-ageing_to_sql(outbound_total_xd_12_live , 'outboud_total_xd_12_live')
+ageing_to_sql(outbound_total_xd_12_live , 'outbound_total_xd_12_live')
 ageing_to_sql(outbound_total_sl_12_live  , 'outbound_total_sl_12_live')
-check_table_exists()
+print(table_exists())
 conn.close()

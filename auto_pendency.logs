@@ -2926,3 +2926,18 @@ Stacktrace:
 11/24/2023 06:02:35 AM http://localhost:37813 "DELETE /session/441654ed64945136a484a7fa18398fed/window HTTP/1.1" 200 0
 11/24/2023 06:02:35 AM Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
 11/24/2023 06:02:35 AM Finished Request
+11/25/2023 11:31:49 AM Error while reading PPPH12 File [Errno 2] No such file or directory: 'Pendency_automation_report_ageing_greater_than_12.csv'
+11/25/2023 11:31:49 AM : Error while Processing the PPPH greater than 12 Aging File:  name 'df' is not defined
+11/25/2023 12:27:48 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:31:05 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:32:20 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:34:28 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:35:33 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:36:01 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:36:44 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:38:24 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:38:57 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:42:00 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:43:34 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:44:15 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
+11/25/2023 12:44:36 PM Error in Truncating the Table: cannot access local variable 'sql' where it is not associated with a value
