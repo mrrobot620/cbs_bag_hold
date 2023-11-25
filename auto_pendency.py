@@ -13,12 +13,19 @@ logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%
 
 conn = pymysql.connect(
     host='localhost',
-    user='abhishek',
+    user='abhi',
     password='abhi',
     db='pendency',
     charset='utf8mb4',
     cursorclass=pymysql.cursors.DictCursor
 )
+
+def check_table_exists():
+    query = "SHOW TABLES"
+    with conn.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchone()
+        return print(result)
 
 try:
     df_secondary = pd.read_csv('ykb_secondary_pending_abhi.csv')
@@ -162,23 +169,17 @@ def calculate_and_categorize_time(dataframe, column_name, current_time  , bucket
 
 zo_ph_secondary_total = calculate_and_categorize_time(df_secondary_zo_ph , 'fact_updated_at' , current_time , "ZO Secondary Pending PH: ")
 zo_sph_secondary_total = calculate_and_categorize_time(df_secondary_zo_sph , 'fact_updated_at' , current_time , "ZO Secondary Pending SPH: ")
-print(f"Total ZO Secondary Pending:    {sum(zo_ph_secondary_total) + sum(zo_sph_secondary_total)}")
 b5_ph_secondary_total = calculate_and_categorize_time(df_secondary_b5_ph , 'fact_updated_at' , current_time , "B5 Secondary Pending PH: ")
 b5_sph_secondary_total = calculate_and_categorize_time(df_secondary_b5_sph , 'fact_updated_at' , current_time , "B5 Secondary Pending SPH: ")
 outbond_12_pendency = calculate_and_categorize_time(outbond_12 , 'fact_updated_at' , current_time , "Outbond Pendency")
 outbound_12_xd_total = calculate_and_categorize_time(outbound_12_xd , 'fact_updated_at' , current_time , "Outbound Cross Dock")
 outbound_12_sl_total = calculate_and_categorize_time(outbound_12_sl , 'fact_updated_at' , current_time , "OB SL Pendency")
-
 zo_ph_bagging_total = calculate_and_categorize_time(df_bagging_zo_ph , 'fact_updated_at' , current_time , "ZO Bagging Pending PH: ")
 zo_sph_bagging_total = calculate_and_categorize_time(df_bagging_zo_sph , 'fact_updated_at' , current_time , "ZO Bagging Pending SPH: ")
-print(f"Total ZO Secondary Pending:    {sum(zo_ph_bagging_total) + sum(zo_sph_bagging_count)}")
 b5_ph_bagging_total = calculate_and_categorize_time(df_bagging_b5_ph , 'fact_updated_at' , current_time , "B5 Bagging Pending PH: ")
 b5_sph_bagging_total = calculate_and_categorize_time(df_bagging_b5_sph , 'fact_updated_at' , current_time , "B5 Bagging Pending SPH: ")
-print(f"Total B5 Secondary Pending:  {sum(b5_ph_bagging_total) + sum(b5_sph_bagging_total)} ")
-
 final_zo_ph = calculate_and_categorize_time(df_zo_ph , 'fact_updated_at' , current_time , 'ZO PH')
 final_zo_sph = calculate_and_categorize_time(df_zo_sph , 'fact_updated_at' , current_time , "ZO SPH")
-print(f"ZO Total PH + SPH =   {sum(final_zo_sph) + sum(final_zo_ph)}")
 final_b5_ph = calculate_and_categorize_time(df_b5_ph , 'fact_updated_at' , current_time , "B5 PH")
 final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , current_time , "B5 SPH")
 
@@ -239,33 +240,45 @@ print(f"PPPH ZO PH: {ppph_zo_ph}")
 print(f"PPPH B5 PH: {ppph_b5_ph}")
 print(f"PPPH ZO SPH: {ppph_zo_sph}")
 print(f"PPPH B5 SPH: {ppph_b5_sph}")
-print(f"PPPH PH Ageing: {ppph_12_ph}")
-print(f"PPPH SPH Ageing: {ppph_12_sph}")
 print(secondary_pending_zo_ph)
 print(secondary_pending_b5_ph)
 print(secondary_pending_zo_sph)
 print(secondary_pending_b5_sph)
 print(secondary_pending_total_ph)
 print(secondary_pending_total_sph)
-print(f"Secondary Pending PH 12:  {secondary_12_ph}")
-print(f"Secondary Pending SPH 12:  {secondary_12_sph}")
 print(bagging_pending_zo_ph)
 print(bagging_pending_zo_sph)
 print(bagging_pending_b5_ph)
 print(bagging_pending_b5_sph)
 print(bagging_pending_total_ph)
 print(bagging_pending_total_sph)
-print(f"Bagging Pending PH 12: {bagging_12_ph}")
-print(f"Bagging Pending SPH 12: {bagging_12_sph}")
 print(outbound_total_live)
 print(outbound_sl_live)
 print(outbound_xd_live)
+
+
+print(f"PPPH_PH_12: {ppph_12_ph}")
+print(f"PPPH SPH A12: {ppph_12_sph}")
+print(f"Secondary Pending PH 12:  {secondary_12_ph}")
+print(f"Secondary Pending SPH 12:  {secondary_12_sph}")
+print(f"Bagging Pending PH 12: {bagging_12_ph}")
+print(f"Bagging Pending SPH 12: {bagging_12_sph}")
 print(f"Outbound 12: {outbound_total_12_live}")
 print(f"Outbound 12 XD: {outbound_total_xd_12_live}")
 print(f"Outbound 12 SL:  {outbound_total_sl_12_live}")
 
-
-
+def ageing_to_sql(item  , table_name):
+    cursor = conn.cursor()
+    try:
+        for key , value in item.items():
+            sql = f"insert into {table_name} (bucket , count) values (%s  , %s)"
+            cursor.execute(sql , (key , value))
+        conn.commit()
+    except Exception as e:
+        print(f"Error:  {e}")
+        conn.rollback()
+    finally:
+        cursor.close()
 
 def dict_to_sql(item):
     cursor = conn.cursor()
@@ -279,6 +292,9 @@ def dict_to_sql(item):
         conn.rollback()  # Rollback changes in case of an error
     finally:
         cursor.close()  
+
+
+
 
 dict_to_sql(live_ph)
 dict_to_sql(live_sph)
@@ -303,5 +319,14 @@ dict_to_sql(bagging_pending_total_sph)
 dict_to_sql(outbound_total_live)
 dict_to_sql(outbound_sl_live)
 dict_to_sql(outbound_xd_live)
-
+ageing_to_sql(ppph_12_ph , "ppph_12_ph")
+ageing_to_sql(ppph_12_sph , "ppph_12_sph")
+ageing_to_sql(secondary_12_ph , "secondary_12_sph")
+ageing_to_sql(secondary_12_sph , 'secondary_12_sph')
+ageing_to_sql(bagging_12_ph , 'bagging_12_ph')
+ageing_to_sql(bagging_12_sph , 'bagging_12_sph')
+ageing_to_sql(outbound_total_12_live , 'outbound_total_12_live')
+ageing_to_sql(outbound_total_xd_12_live , 'outboud_total_xd_12_live')
+ageing_to_sql(outbound_total_sl_12_live  , 'outbound_total_sl_12_live')
+check_table_exists()
 conn.close()
