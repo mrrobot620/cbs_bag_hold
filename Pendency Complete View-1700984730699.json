@@ -151,7 +151,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "dark-blue",
+            "fixedColor": "dark-orange",
             "mode": "shades"
           },
           "mappings": [],
@@ -187,12 +187,12 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^LIVE$/",
+          "fields": "/.*/",
           "limit": 1,
           "values": true
         },
         "text": {},
-        "textMode": "name"
+        "textMode": "value"
       },
       "pluginVersion": "10.1.1",
       "targets": [
@@ -202,16 +202,17 @@
             "type": "mysql",
             "uid": "${DS_MYSQL-1}"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "format": "table",
-          "rawSql": "SELECT LIVE FROM pendency.names LIMIT 50 ",
+          "rawQuery": true,
+          "rawSql": "SELECT datetime FROM pendency.live_ppph ORDER BY datetime LIMIT 1",
           "refId": "A",
           "sql": {
             "columns": [
               {
                 "parameters": [
                   {
-                    "name": "LIVE",
+                    "name": "datetime",
                     "type": "functionParameter"
                   }
                 ],
@@ -228,7 +229,7 @@
             ],
             "limit": 50
           },
-          "table": "names"
+          "table": "live_ppph"
         }
       ],
       "transparent": true,
@@ -9632,6 +9633,6 @@
   "timezone": "",
   "title": "Pendency Complete View",
   "uid": "d3887f17-4137-459a-8395-52f1cfbb8f3d",
-  "version": 29,
+  "version": 30,
   "weekStart": ""
 }
