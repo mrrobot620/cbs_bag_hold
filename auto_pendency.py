@@ -384,21 +384,6 @@ print(f"Outbound 12 SL:  {outbound_total_sl_12_live}")
 
 
 
-def ageing_to_sql(item, table_name):
-    try:
-        with conn.cursor() as cursor:
-            for key, value in item.items():
-                insert_query = """
-                    INSERT INTO {table_name} (bucket, count)
-                    VALUES (%s, %s)
-                    ON DUPLICATE KEY UPDATE count = %s
-                """.format(table_name=table_name)
-                cursor.execute(insert_query, (key, value, value))
-            conn.commit()
-    except Exception as e:
-        print(f"Error: {e}")
-        conn.rollback()  
-
 def dict_to_sql(item, table_name):
     try:
         with conn.cursor() as cursor:
