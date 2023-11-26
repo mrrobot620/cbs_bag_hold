@@ -29,7 +29,7 @@ op = webdriver.ChromeOptions()
 op.add_argument('--headless=new')
 prefs = {
     'profile.default_content_settings.popups': 0,
-    'download.default_directory' : r"/home/administrator/cbs_bag_hold",
+    'download.default_directory' : r"/home/administrator/cbs_bag_hold/data",
     'directory_upgrade': True
 }
 op.add_experimental_option('prefs' , prefs)
@@ -95,7 +95,7 @@ def secondary():
 def report_downloader(report_link):
     time.sleep(2)
     driver.get(report_link)
-    time.sleep(1)
+    time.sleep(5)
     try:
         download_button = driver.find_element(By.XPATH , "/html/body/div/div/div[2]/div[3]/div[2]/div/div[1]/div[3]/div/div/div/div/span[1]")
         download_button.click()
@@ -116,6 +116,7 @@ def report_downloader(report_link):
         logging.warning(f"Fetched Sucessfully: {report_link}")
     except Exception as E:
         logging.warning(f"Error in fetching:   {report_link} : {E}")
+        print(f"Error {report_link}")
 
 
 

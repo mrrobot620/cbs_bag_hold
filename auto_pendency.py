@@ -7,6 +7,7 @@ import pymysql
 
 time_zone = pytz.timezone('UTC')
 current_time= datetime.now(time_zone)
+file_path = "/home/administrator/cbs_bag_hold/data/"
 
 # logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , encoding='utf-8' , level=logging.DEBUG )
 
@@ -14,7 +15,7 @@ logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%
 
 conn = pymysql.connect(
     host='localhost',
-    user='abhi',
+    user='abhishek',
     password='abhi',
     db='pendency',
     charset='utf8mb4',
@@ -62,48 +63,48 @@ def table_exists():
 
 
 try:
-    df_secondary = pd.read_csv('ykb_secondary_pending_abhi.csv')
+    df_secondary = pd.read_csv(f'{file_path}ykb_secondary_pending_abhi.csv')
 except Exception as E:
     logging.warning(f"Error Secondary File not found:  {E}")
 try:
-    outbond_df = pd.read_csv('ykb_outbound.csv')
+    outbond_df = pd.read_csv(f'{file_path}ykb_outbound.csv')
 except Exception as E:
     logging.warning(f"Error Outbound file not Found: {E}")
 try:
-    outbond_12 = pd.read_csv("ykb_outbond_pending_greater_than_12.csv")
+    outbond_12 = pd.read_csv(f"{file_path}ykb_outbond_pending_greater_than_12.csv")
 except Exception as E:
     logging.warning(f"Error Outbound12 File not found {E}")
 try:
-    df_ppph1 = pd.read_csv('ykb_pendency_automation_PPPH.csv')
+    df_ppph1 = pd.read_csv(f'{file_path}ykb_pendency_automation_PPPH.csv')
 except Exception as E:
     logging.warning(f"Error PPPH File not Found {E}")
 try:
-    df_bagging = pd.read_csv('ykb_bagging_pending_automation_abhi.csv')
+    df_bagging = pd.read_csv(f'{file_path}ykb_bagging_pending_automation_abhi.csv')
 except Exception as E:
     logging.warning(f"Error while reading the Bagging File {E}")
 try:
-    df = pd.read_csv("Pendency_automation_report_ageing_greater_than_12.csv")
+    df = pd.read_csv(f"{file_path}Pendency_automation_report_ageing_greater_than_12.csv")
 except Exception as E:
     logging.warning(f"Error while reading PPPH12 File {E}")
 try:
-    outbond_xd = pd.read_csv('ykb_outbond_crossdock_abhi.csv')
+    outbond_xd = pd.read_csv(f'{file_path}ykb_outbond_crossdock_abhi.csv')
 except Exception as E:
     logging.warning(f"Error while Reading the Outbond XD file {E}")
 try:
-    outbond_sl = pd.read_csv('outbond_semi_large_abhi.csv')
+    outbond_sl = pd.read_csv(f'{file_path}outbond_semi_large_abhi.csv')
 except Exception as E:
     logging.warning(f"Error Outbond SL File not found {E}")
 try:
-    outbound_12_xd = pd.read_csv("ykb_outbound_xd_greater_than_12.csv")
+    outbound_12_xd = pd.read_csv(f"{file_path}ykb_outbound_xd_greater_than_12.csv")
 except Exception as E:
     logging.warning(F"Error while reading Outbound XD 12 File: {E}")
 try:
-    outbound_12_sl = pd.read_csv("ykb_outbound_sl_greater_than-12.csv")
+    outbound_12_sl = pd.read_csv(f"{file_path}ykb_outbound_sl_greater_than-12.csv")
     # Spelling Mistake
 except Exception as E:
     logging.warning(f"Error while reading Outbound SL 12 File  {E}")
 try:
-    df_for_OMH = pd.read_csv("Pendency_automation_report_ageing_greater_than_12.csv")
+    df_for_OMH = pd.read_csv(f"{file_path}Pendency_automation_report_ageing_greater_than_12.csv")
 except Exception as E:
     logging.warning(f"Error {E}")
 
@@ -370,8 +371,6 @@ print(bagging_pending_total_sph)
 print(outbound_total_live)
 print(outbound_sl_live)
 print(outbound_xd_live)
-
-
 print(f"PPPH_PH_12: {ppph_12_zo}")
 print(f"PPPH SPH A12: {ppph_12_b5}")
 print(f"Secondary Pending PH 12:  {secondary_12_zo}")
