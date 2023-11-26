@@ -2949,3 +2949,5 @@ Stacktrace:
 11/25/2023 07:43:39 PM Error in Creating Mutli Value Table: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CRETAE TABLE IF NOT EXISTS live_values (datetime DATETIME , bucket VARCHAR(25...' at line 1")
 11/25/2023 07:44:55 PM Error in Creating Mutli Value Table: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%s, %s, %s, %s, %s)' at line 1")
 11/25/2023 10:07:45 PM : Error while Processing the PPPH greater than 12 Aging File:  'int' object is not callable
+11/26/2023 01:24:18 PM Error Outbound file not Found: [Errno 2] No such file or directory: 'ykb_outbound.csv'
+11/26/2023 01:24:18 PM Error while Processing OB Files:  name 'outbond_df' is not defined
