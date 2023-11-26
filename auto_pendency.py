@@ -5,7 +5,7 @@ import logging
 import pymysql
 
 
-time_zone = pytz.timezone('Asia/Kolkata')
+time_zone = pytz.timezone('UTC')
 current_time= datetime.now(time_zone)
 
 # logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , encoding='utf-8' , level=logging.DEBUG )
