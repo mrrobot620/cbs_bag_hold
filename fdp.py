@@ -16,6 +16,8 @@ import os
 from idna import valid_contextj
 from datetime import datetime, timedelta
 import logging
+import shutil
+
 
 
 logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , level=logging.DEBUG )
@@ -24,6 +26,8 @@ with open('fdp_links.txt' , 'r') as f:
     links = f.readlines()
 
 print(links)
+
+file_path = "/home/administrator/cbs_bag_hold/data"
 
 op = webdriver.ChromeOptions()
 op.add_argument('--headless=new')
@@ -119,12 +123,39 @@ def report_downloader(report_link):
         print(f"Error {report_link}")
 
 
+def file_checker():
+    files = os.listdir(file_path)
+    empty_file = []
+    print(files)
+    for file_names in files:
+        file = os.path.join(file_path , file_names)
+        if os.path.isfile(file):
+            file_size = os.path.getsize(file)
+            print(f"File {file_names} Size: {file_size}")
+            if file_size == 0:
+                empty_file.append(file_names)
+                
+    for file in empty_file:
+        empty_file_path = os.path.join(file_path , file)
+        os.remove(empty_file_path)
+        print(f"Removed Empty File: {file}")
+        fdp_link = f"http://fdp.fkinternal.com/reports/view/scp/ekl/{os.path.splitext(file)[0]}"
+        print(fdp_link)
+        report_downloader(fdp_link)
 
 
+def pre_directory_checker():
+    if os.path.exists(file_path):
+        shutil.rmtree(file_path)
+        print("Pre File Deleted")
+
+
+pre_directory_checker()
 driver.maximize_window()
 login()
 uiMover()
 time.sleep(4)
 for link in links:
     report_downloader(link)
+file_checker()
 driver.close()

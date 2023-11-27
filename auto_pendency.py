@@ -3,10 +3,13 @@ from datetime import datetime
 import pytz
 import logging
 import pymysql
-
+import os
+import shutil
 
 time_zone = pytz.timezone('UTC')
+time_zone1 = pytz.timezone('Asia/Kolkata')
 current_time= datetime.now(time_zone)
+current_time1 = datetime.now(time_zone1)
 file_path = "/home/administrator/cbs_bag_hold/data/"
 
 # logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%m/%d/%Y %I:%M:%S %p' , filename='auto_pendency.logs' , encoding='utf-8' , level=logging.DEBUG )
@@ -219,67 +222,67 @@ def calculate_and_categorize_time(dataframe, column_name, current_time  , bucket
     return data
 
 try:
-    zo_ph_secondary_total = calculate_and_categorize_time(df_secondary_zo_ph , 'fact_updated_at' , current_time , "ZO Secondary Pending PH: ")
+    zo_ph_secondary_total = calculate_and_categorize_time(df_secondary_zo_ph , 'fact_updated_at' , current_time1, "ZO Secondary Pending PH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    zo_sph_secondary_total = calculate_and_categorize_time(df_secondary_zo_sph , 'fact_updated_at' , current_time , "ZO Secondary Pending SPH: ")
+    zo_sph_secondary_total = calculate_and_categorize_time(df_secondary_zo_sph , 'fact_updated_at' , current_time1 , "ZO Secondary Pending SPH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    b5_ph_secondary_total = calculate_and_categorize_time(df_secondary_b5_ph , 'fact_updated_at' , current_time , "B5 Secondary Pending PH: ")
+    b5_ph_secondary_total = calculate_and_categorize_time(df_secondary_b5_ph , 'fact_updated_at' , current_time1, "B5 Secondary Pending PH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    b5_sph_secondary_total = calculate_and_categorize_time(df_secondary_b5_sph , 'fact_updated_at' , current_time , "B5 Secondary Pending SPH: ")
+    b5_sph_secondary_total = calculate_and_categorize_time(df_secondary_b5_sph , 'fact_updated_at' , current_time1 , "B5 Secondary Pending SPH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    outbond_12_pendency = calculate_and_categorize_time(outbond_12 , 'fact_updated_at' , current_time , "Outbond Pendency")
+    outbond_12_pendency = calculate_and_categorize_time(outbond_12 , 'fact_updated_at' , current_time1 , "Outbond Pendency")
 except Exception as E:
     logging.warning(E)
 try:
-    outbound_12_xd_total = calculate_and_categorize_time(outbound_12_xd , 'fact_updated_at' , current_time , "Outbound Cross Dock")
+    outbound_12_xd_total = calculate_and_categorize_time(outbound_12_xd , 'fact_updated_at' , current_time1 , "Outbound Cross Dock")
 except Exception as E:
     logging.warning(E)
 try:
-    outbound_12_sl_total = calculate_and_categorize_time(outbound_12_sl , 'fact_updated_at' , current_time , "OB SL Pendency")
+    outbound_12_sl_total = calculate_and_categorize_time(outbound_12_sl , 'fact_updated_at' , current_time1 , "OB SL Pendency")
 except Exception as E:
     logging.warning(E)
 try:
-    zo_ph_bagging_total = calculate_and_categorize_time(df_bagging_zo_ph , 'fact_updated_at' , current_time , "ZO Bagging Pending PH: ")
+    zo_ph_bagging_total = calculate_and_categorize_time(df_bagging_zo_ph , 'fact_updated_at' , current_time1 , "ZO Bagging Pending PH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    zo_sph_bagging_total = calculate_and_categorize_time(df_bagging_zo_sph , 'fact_updated_at' , current_time , "ZO Bagging Pending SPH: ")
+    zo_sph_bagging_total = calculate_and_categorize_time(df_bagging_zo_sph , 'fact_updated_at' , current_time1 , "ZO Bagging Pending SPH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    b5_ph_bagging_total = calculate_and_categorize_time(df_bagging_b5_ph , 'fact_updated_at' , current_time , "B5 Bagging Pending PH: ")
+    b5_ph_bagging_total = calculate_and_categorize_time(df_bagging_b5_ph , 'fact_updated_at' , current_time1 , "B5 Bagging Pending PH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    b5_sph_bagging_total = calculate_and_categorize_time(df_bagging_b5_sph , 'fact_updated_at' , current_time , "B5 Bagging Pending SPH: ")
+    b5_sph_bagging_total = calculate_and_categorize_time(df_bagging_b5_sph , 'fact_updated_at' , current_time1 , "B5 Bagging Pending SPH: ")
 except Exception as E:
     logging.warning(E)
 try:
-    final_zo_ph = calculate_and_categorize_time(df_zo_ph , 'fact_updated_at' , current_time , 'ZO PH')
+    final_zo_ph = calculate_and_categorize_time(df_zo_ph , 'fact_updated_at' , current_time1 , 'ZO PH')
 except Exception as E:
     logging.warning(E)
 try:
-    final_zo_sph = calculate_and_categorize_time(df_zo_sph , 'fact_updated_at' , current_time , "ZO SPH")
+    final_zo_sph = calculate_and_categorize_time(df_zo_sph , 'fact_updated_at' , current_time1 , "ZO SPH")
 except Exception as E:
     logging.warning(E)
 try:
-    final_b5_ph = calculate_and_categorize_time(df_b5_ph , 'fact_updated_at' , current_time , "B5 PH")
+    final_b5_ph = calculate_and_categorize_time(df_b5_ph , 'fact_updated_at' , current_time1 , "B5 PH")
 except Exception as E:
     logging.warning(E)
 try:
-    final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , current_time , "B5 SPH")
+    final_b5_sph = calculate_and_categorize_time(df_b5_sph , 'fact_updated_at' , current_time1 , "B5 SPH")
 except Exception as E:
     logging.warning(E)
 try:
-    other_mh_df = calculate_and_categorize_time(df_other_mh , 'fact_updated_at' , current_time , "Other MH Ageing")
+    other_mh_df = calculate_and_categorize_time(df_other_mh , 'fact_updated_at' , current_time1 , "Other MH Ageing")
 except Exception as E:
     logging.warning(E)
 
@@ -464,4 +467,5 @@ ageing_to_sql(other_mh_12 , 'other_mh_12')
 ageing_to_sql(secondary_12 , 'secondary_12')
 ageing_to_sql(bagging_12 , 'bagging_12')
 print(table_exists())
+shutil.rmtree(file_path)
 conn.close()
