@@ -46,10 +46,10 @@ print(driver.title)
 
 def login():
     username = driver.find_element(By.XPATH , "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[1]")
-    username.send_keys("ca.2670054")
+    username.send_keys("")
 
     password = driver.find_element(By.XPATH , "/html/body/div[2]/div[2]/div/div/form/div/div[4]/input[2]")
-    password.send_keys("Veer@809")
+    password.send_keys("")
 
 
     try:
